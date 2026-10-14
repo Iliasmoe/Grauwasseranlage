@@ -1,0 +1,20 @@
+[
+  {
+    "horizon": 5,
+    "status": "passed",
+    "valid": true,
+    "used": 555.3897571999989,
+    "npv": -22110.311293253504,
+    "overall": "Rot",
+    "excel_error_cells": 0
+  },
+  {
+    "horizon": 35,
+    "status": "passed",
+    "valid": true,
+    "used": 555.3897571999989,
+    "npv": -10999.72815693494,
+    "overall": "Rot",
+    "excel_error_cells": 0
+  }
+]

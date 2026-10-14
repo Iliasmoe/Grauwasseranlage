@@ -1,0 +1,242 @@
+{
+  "engine": "LibreOfficeDev 26.8.0.0.alpha0 2c87e51eeaa2b413ff4ae097b2705eea1995d8e5",
+  "elapsed_seconds": 866.2,
+  "cases": [
+    {
+      "case": "01_Basis",
+      "status": "passed",
+      "valid": true,
+      "used": 555.3897571999989,
+      "npv": -17797.872821046876,
+      "overall": "Rot",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "02_Kein_Grauwasser",
+      "status": "passed",
+      "valid": true,
+      "used": 0.0,
+      "npv": -38661.2608586771,
+      "overall": "Rot",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "03_Kein_Bedarf",
+      "status": "passed",
+      "valid": true,
+      "used": 0.0,
+      "npv": -42410.93557454252,
+      "overall": "Rot",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "04_Anfall_kleiner_Bedarf",
+      "status": "passed",
+      "valid": true,
+      "used": 365.0,
+      "npv": 7200.0,
+      "overall": "Grün",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "05_Anfall_groesser_Bedarf",
+      "status": "passed",
+      "valid": true,
+      "used": 182.5,
+      "npv": 3550.0,
+      "overall": "Grün",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "06_Hohe_Investition",
+      "status": "passed",
+      "valid": true,
+      "used": 555.3897571999989,
+      "npv": -10002797.872821046,
+      "overall": "Rot",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "07_Negativer_Cashflow",
+      "status": "passed",
+      "valid": true,
+      "used": 555.3897571999989,
+      "npv": -42410.93557454252,
+      "overall": "Rot",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "08_Amortisation_innerhalb",
+      "status": "passed",
+      "valid": true,
+      "used": 365.0,
+      "npv": 5840.0,
+      "overall": "Grün",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "09_Amortisation_ausserhalb",
+      "status": "passed",
+      "valid": true,
+      "used": 365.0,
+      "npv": -7300.0,
+      "overall": "Rot",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "10_Fehlende_Eingabe",
+      "status": "passed",
+      "valid": false,
+      "used": null,
+      "npv": null,
+      "overall": "Nicht bewertbar",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "11_Ungueltige_Eingabe",
+      "status": "passed",
+      "valid": false,
+      "used": null,
+      "npv": null,
+      "overall": "Nicht bewertbar",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "12_Hygiene_ungeklaert",
+      "status": "passed",
+      "valid": true,
+      "used": 365.0,
+      "npv": 7200.0,
+      "overall": "Gelb",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "13_Geaenderte_Schwellen",
+      "status": "passed",
+      "valid": true,
+      "used": 555.3897571999989,
+      "npv": -17797.872821046876,
+      "overall": "Rot",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "14_Geaenderte_Tage",
+      "status": "passed",
+      "valid": true,
+      "used": 353.5503800480006,
+      "npv": -25105.852699119972,
+      "overall": "Rot",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "15_Zins_Referenz",
+      "status": "passed",
+      "valid": true,
+      "used": 365.0,
+      "npv": 4636.866498304912,
+      "overall": "Grün",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "16_Tagesversatz_Speicher",
+      "status": "passed",
+      "valid": true,
+      "used": 0.9,
+      "npv": -82.0,
+      "overall": "Rot",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "17_Hygiene_nicht_erfuellt",
+      "status": "passed",
+      "valid": true,
+      "used": 365.0,
+      "npv": 7200.0,
+      "overall": "Rot",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "18_Ungueltige_Schwellen",
+      "status": "passed",
+      "valid": false,
+      "used": null,
+      "npv": null,
+      "overall": "Nicht bewertbar",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "19_Schaltjahr",
+      "status": "passed",
+      "valid": true,
+      "used": 555.564163879999,
+      "npv": -17790.14368577958,
+      "overall": "Rot",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "20_Abwasser_unbelegt",
+      "status": "passed",
+      "valid": false,
+      "used": null,
+      "npv": null,
+      "overall": "Nicht bewertbar",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "21_Abwasser_belegt",
+      "status": "passed",
+      "valid": true,
+      "used": 555.3897571999989,
+      "npv": 3861.622402029291,
+      "overall": "Gelb",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "22_Vollfoerderung",
+      "status": "passed",
+      "valid": true,
+      "used": 365.0,
+      "npv": 7300.0,
+      "overall": "Grün",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "23_Spaetere_Unterdeckung",
+      "status": "passed",
+      "valid": true,
+      "used": 365.0,
+      "npv": -3430.0,
+      "overall": "Rot",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "24_Endbestand",
+      "status": "passed",
+      "valid": true,
+      "used": 0.0,
+      "npv": -100.0,
+      "overall": "Rot",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "25_Text_statt_Zahl",
+      "status": "passed",
+      "valid": false,
+      "used": null,
+      "npv": null,
+      "overall": "Nicht bewertbar",
+      "excel_error_cells": 0
+    },
+    {
+      "case": "26_Nicht_ganzzahlig",
+      "status": "passed",
+      "valid": false,
+      "used": null,
+      "npv": null,
+      "overall": "Nicht bewertbar",
+      "excel_error_cells": 0
+    }
+  ],
+  "passed": 26,
+  "failed": 0
+}
