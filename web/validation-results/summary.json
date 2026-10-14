@@ -1,0 +1,15 @@
+{
+  "api_tests": 25,
+  "reference_tests": 26,
+  "browser_workflows": 16,
+  "excel_engine_checks": 1,
+  "typecheck_and_build": "passed",
+  "setup_repeatability": "passed",
+  "service_restart": "passed",
+  "browser_errors": 0,
+  "external_runtime_requests": 0,
+  "cloud_config_fields_saved": [
+    "install_script",
+    "start_skill"
+  ]
+}

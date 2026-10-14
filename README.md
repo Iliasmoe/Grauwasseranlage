@@ -43,3 +43,14 @@ cp build/recalculated/Grauwasser_Bewertungstool.xlsx Grauwasser_Bewertungstool.x
 In einer vorbereiteten Cloud-Maschine genügt das vorhandene Python mit openpyxl; das Anlegen eines venv ist optional. `tests/engine_check.py` braucht die oben erzeugte Datei in `build/raw`. Engine-Tests können einige Minuten dauern und ändern die Auslieferungsdatei nicht. Das Report-JSON wird neu geschrieben. Die endgültige XLSX enthält gecachte Resultate aus der Tabellenkalkulations-Engine; Excel berechnet Eingabeänderungen automatisch erneut.
 
 Microsoft Excel für Windows wurde in der Cloud nicht ausgeführt. Die tatsächlich geprüfte LibreOffice-Version und Testergebnisse stehen im Validierungsbericht. Normvolltexte, echte Projektdaten und wissenschaftlich belegte Ampelschwellen müssen für den Einsatz in der Bachelorarbeit ergänzt werden.
+
+## Webanwendung
+
+Die Browseranwendung liegt in [`web/`](web/README.md). Sie verwendet dieselbe geprüfte Python-Rechnung und ergänzt Projektverwaltung, Tageskalender, Szenarien, Probandenauswertung sowie JSON-, CSV- und Excel-Export.
+
+```bash
+bash web/setup.sh
+bash web/start.sh
+```
+
+Installation, Datenhaltung, Tests und Grenzen sind in [`web/README.md`](web/README.md) beschrieben.

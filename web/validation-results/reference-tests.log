@@ -1,0 +1,31 @@
+test_days_change (test_model.ReferenceTests.test_days_change) ... ok
+test_end_inventory_is_not_used (test_model.ReferenceTests.test_end_inventory_is_not_used) ... ok
+test_grant_and_zero_investment (test_model.ReferenceTests.test_grant_and_zero_investment) ... ok
+test_high_investment (test_model.ReferenceTests.test_high_investment) ... ok
+test_hygiene_not_met_cannot_be_compensated (test_model.ReferenceTests.test_hygiene_not_met_cannot_be_compensated) ... ok
+test_independent_discount_reference (test_model.ReferenceTests.test_independent_discount_reference) ... ok
+test_invalid (test_model.ReferenceTests.test_invalid) ... ok
+test_invalid_scenario (test_model.ReferenceTests.test_invalid_scenario) ... ok
+test_invariants (test_model.ReferenceTests.test_invariants) ... ok
+test_leap_year (test_model.ReferenceTests.test_leap_year) ... ok
+test_missing (test_model.ReferenceTests.test_missing) ... ok
+test_negative_net_cashflow (test_model.ReferenceTests.test_negative_net_cashflow) ... ok
+test_no_demand (test_model.ReferenceTests.test_no_demand) ... ok
+test_no_greywater (test_model.ReferenceTests.test_no_greywater) ... ok
+test_old_water_is_discarded (test_model.ReferenceTests.test_old_water_is_discarded) ... ok
+test_payback_outside_horizon (test_model.ReferenceTests.test_payback_outside_horizon) ... ok
+test_payback_within_horizon (test_model.ReferenceTests.test_payback_within_horizon) ... ok
+test_replacement_can_reverse_payback (test_model.ReferenceTests.test_replacement_can_reverse_payback) ... ok
+test_scenarios (test_model.ReferenceTests.test_scenarios) ... ok
+test_sewage_billing_guard (test_model.ReferenceTests.test_sewage_billing_guard) ... ok
+test_storage_and_temporal_reference (test_model.ReferenceTests.test_storage_and_temporal_reference) ... ok
+test_supply_above_demand_hand_reference (test_model.ReferenceTests.test_supply_above_demand_hand_reference) ... ok
+test_supply_below_demand_hand_reference (test_model.ReferenceTests.test_supply_below_demand_hand_reference) ... ok
+test_threshold_changes (test_model.ReferenceTests.test_threshold_changes) ... ok
+test_unknown_hygiene (test_model.ReferenceTests.test_unknown_hygiene) ... ok
+test_zero_rate (test_model.ReferenceTests.test_zero_rate) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.064s
+
+OK

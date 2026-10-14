@@ -1,0 +1,32 @@
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+test_all_scenarios_and_sensitivities (test_api.ApiTests.test_all_scenarios_and_sensitivities) ... ok
+test_api_schema_errors_and_size_limit (test_api.ApiTests.test_api_schema_errors_and_size_limit) ... ok
+test_days_update (test_api.ApiTests.test_days_update) ... ok
+test_document_allowlist (test_api.ApiTests.test_document_allowlist) ... ok
+test_duplicate_study_ids_reported (test_api.ApiTests.test_duplicate_study_ids_reported) ... ok
+test_empty_study_placeholder_is_not_orphaned (test_api.ApiTests.test_empty_study_placeholder_is_not_orphaned) ... ok
+test_exact_excel_reference (test_api.ApiTests.test_exact_excel_reference) ... ok
+test_export_contains_actual_project_and_literal_text (test_api.ApiTests.test_export_contains_actual_project_and_literal_text) ... ok
+test_health_and_production_page (test_api.ApiTests.test_health_and_production_page) ... ok
+test_hygiene_gate (test_api.ApiTests.test_hygiene_gate) ... ok
+test_invalid_calendar_flags (test_api.ApiTests.test_invalid_calendar_flags) ... ok
+test_invalid_export_rejected (test_api.ApiTests.test_invalid_export_rejected) ... ok
+test_invalid_input (test_api.ApiTests.test_invalid_input) ... ok
+test_missing_input (test_api.ApiTests.test_missing_input) ... ok
+test_negative_cashflow_and_high_investment (test_api.ApiTests.test_negative_cashflow_and_high_investment) ... ok
+test_no_demand (test_api.ApiTests.test_no_demand) ... ok
+test_no_greywater (test_api.ApiTests.test_no_greywater) ... ok
+test_profiles_cannot_exceed_calendar (test_api.ApiTests.test_profiles_cannot_exceed_calendar) ... ok
+test_scenario_failure_is_local (test_api.ApiTests.test_scenario_failure_is_local) ... ok
+test_sewage_evidence_required (test_api.ApiTests.test_sewage_evidence_required) ... ok
+test_study_statistics (test_api.ApiTests.test_study_statistics) ... ok
+test_threshold_update (test_api.ApiTests.test_threshold_update) ... ok
+test_unknown_and_absent_fields (test_api.ApiTests.test_unknown_and_absent_fields) ... ok
+test_water_and_monthly_balance (test_api.ApiTests.test_water_and_monthly_balance) ... ok
+test_year_change_requires_new_calendar (test_api.ApiTests.test_year_change_requires_new_calendar) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 11.761s
+
+OK

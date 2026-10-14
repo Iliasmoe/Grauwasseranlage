@@ -1,0 +1,70 @@
+{
+  "cases": [
+    {
+      "case": "Dashboard stimmt mit Excel-Referenz überein",
+      "status": "passed"
+    },
+    {
+      "case": "Monatsbilanz und jährlicher Cashflow umschaltbar",
+      "status": "passed"
+    },
+    {
+      "case": "Nutzungstage ändern Tagesrechnung und Dashboard",
+      "status": "passed"
+    },
+    {
+      "case": "Preisänderung bis Kapitalwert durchgerechnet",
+      "status": "passed"
+    },
+    {
+      "case": "Fehlender Wert sperrt Bewertung und Export; keine veralteten KPIs",
+      "status": "passed"
+    },
+    {
+      "case": "Schwellenänderung verändert Ressourcenampel",
+      "status": "passed"
+    },
+    {
+      "case": "Szenarien unabhängig konfigurierbar; ungültige Variante lokal gesperrt",
+      "status": "passed"
+    },
+    {
+      "case": "Einzeltage, Zeitraumänderung und Kalenderwiederherstellung",
+      "status": "passed"
+    },
+    {
+      "case": "Probanden erfassen, bearbeiten, auswerten und CSV exportieren",
+      "status": "passed"
+    },
+    {
+      "case": "JSON- und Excel-Export enthalten tatsächliche Projekteingaben",
+      "status": "passed"
+    },
+    {
+      "case": "Projekte überleben Neuladen und lassen sich wieder importieren",
+      "status": "passed"
+    },
+    {
+      "case": "Projekte anlegen, wechseln, löschen; Dialog per Tastatur schließen",
+      "status": "passed"
+    },
+    {
+      "case": "Fehlerhafter Import zerstört keine vorhandenen Projekte",
+      "status": "passed"
+    },
+    {
+      "case": "Nachweisveto wird bei günstiger Ökonomie korrekt begründet",
+      "status": "passed"
+    },
+    {
+      "case": "Mobil 390 px: kein Seitenüberlauf, Navigation, Eingaben und Persistenz",
+      "status": "passed"
+    },
+    {
+      "case": "Keine Browserfehler und keine externen Laufzeit-Anfragen",
+      "status": "passed"
+    }
+  ],
+  "browser_errors": [],
+  "external_requests": []
+}

@@ -1,0 +1,6 @@
+.cache/
+.venv/
+frontend/node_modules/
+frontend/dist/
+test-results/
+__pycache__/
