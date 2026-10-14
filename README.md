@@ -44,13 +44,17 @@ In einer vorbereiteten Cloud-Maschine genügt das vorhandene Python mit openpyxl
 
 Microsoft Excel für Windows wurde in der Cloud nicht ausgeführt. Die tatsächlich geprüfte LibreOffice-Version und Testergebnisse stehen im Validierungsbericht. Normvolltexte, echte Projektdaten und wissenschaftlich belegte Ampelschwellen müssen für den Einsatz in der Bachelorarbeit ergänzt werden.
 
-## Webanwendung
+## HTML-Anwendung mit Browser-Speicherung
 
-Die Browseranwendung liegt in [`web/`](web/README.md). Sie verwendet dieselbe geprüfte Python-Rechnung und ergänzt Projektverwaltung, Tageskalender, Szenarien, Probandenauswertung sowie JSON-, CSV- und Excel-Export.
+**[`Grauwasser_App.html`](Grauwasser_App.html) herunterladen und im Browser öffnen.** Die einzelne Datei enthält alle Berechnungen und Exporte und funktioniert ohne Backend. Aktuelle Entwürfe werden automatisch im Browser gespeichert; unter „Zwischenstände“ lassen sich die letzten 20 Zustände pro Projekt sichern und wiederherstellen. Die [`HTML-Anleitung`](HTML_Anleitung.md) erklärt Nutzung, JSON-Sicherungen und Speichergrenzen.
+
+Die responsive Oberfläche umfasst Tageskalender, Szenarien, Probandenauswertung sowie JSON-, CSV- und Excel-Export. Die Browserberechnung ist gegen das wissenschaftliche Python-Modell geprüft. Der [`HTML-Validierungsbericht`](web/HTML_VALIDIERUNG.md) dokumentiert die ausgeführten Prüfungen.
+
+## Entwicklung und optionale Python-API
+
+Quellcode und Entwicklungsanleitung liegen in [`web/`](web/README.md). Für das Frontend genügt Node.js; die bestehende API bleibt als Referenz verfügbar. Die vorbereitete Cloud-Umgebung startet beides weiterhin mit:
 
 ```bash
 bash web/setup.sh
 bash web/start.sh
 ```
-
-Installation, Datenhaltung, Tests und Grenzen sind in [`web/README.md`](web/README.md) beschrieben.

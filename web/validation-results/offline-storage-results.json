@@ -1,0 +1,44 @@
+{
+  "cases": [
+    {
+      "case": "Automatische und benannte Zwischenstände; Wiederherstellung korrekt",
+      "status": "passed"
+    },
+    {
+      "case": "Stand vor Wiederherstellung bleibt ebenfalls verfügbar",
+      "status": "passed"
+    },
+    {
+      "case": "Unvollständiger Entwurf und Historie überleben Neuladen und vollständigen Browserneustart",
+      "status": "passed"
+    },
+    {
+      "case": "Historie ist auf die letzten 20 Zwischenstände pro Projekt begrenzt",
+      "status": "passed"
+    },
+    {
+      "case": "Zwischenstände bleiben ihrem Projekt zugeordnet",
+      "status": "passed"
+    },
+    {
+      "case": "Eingebettete Methodik ist ohne Netzwerk herunterladbar",
+      "status": "passed"
+    },
+    {
+      "case": "Zwischenstand-Dialog funktioniert bei 390 px ohne Seitenüberlauf",
+      "status": "passed"
+    },
+    {
+      "case": "Excel-Export: Nutzertexte bleiben Literaltexte; keine alten Formel-Caches oder Studienzeilen",
+      "status": "passed"
+    },
+    {
+      "case": "Blockierter Browser-Speicher: ehrlicher Hinweis, Weiterarbeiten und JSON-Sicherung möglich",
+      "status": "passed"
+    }
+  ],
+  "browser_errors": [],
+  "network_requests_beyond_document": [],
+  "delivery": "Unveränderte HTML-Datei an lokaler Testadresse; alle weiteren Anfragen gesperrt; offline=True",
+  "file_url_test": "Cloud-Browser blockiert file:// administrativ; keine Richtlinien geändert"
+}

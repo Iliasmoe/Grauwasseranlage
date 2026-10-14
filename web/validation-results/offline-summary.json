@@ -1,0 +1,12 @@
+{
+  "model_cases": 117,
+  "value_comparisons": 407520,
+  "browser_workflows": 16,
+  "storage_workflows": 9,
+  "excel_engine": "passed",
+  "typecheck_and_build": "passed",
+  "browser_errors": 0,
+  "runtime_network_requests": 0,
+  "direct_file_url_test": "administratively blocked in cloud browser; identical HTML tested with offline local HTTP origin",
+  "reproducible_html_build": "passed"
+}

@@ -6,19 +6,28 @@ from io import BytesIO
 from openpyxl import load_workbook
 from playwright.sync_api import sync_playwright, expect
 ROOT=Path(__file__).resolve().parents[2]
-sys.path.insert(0,str(ROOT/'src'))
+sys.path.insert(0,str(ROOT));sys.path.insert(0,str(ROOT/'src'))
 from model import Project,evaluate
 
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--url',default='http://127.0.0.1:8000');parser.add_argument('--browser',default='/usr/bin/chromium');args=parser.parse_args()
-    output=ROOT/'web/test-results';output.mkdir(exist_ok=True)
+    parser=argparse.ArgumentParser();parser.add_argument('--url',default='http://127.0.0.1:8000');parser.add_argument('--browser',default='/usr/bin/chromium');parser.add_argument('--output',default='web/test-results');parser.add_argument('--html',help='HTML via Playwright an lokaler Testadresse ausliefern, alle anderen Anfragen sperren');args=parser.parse_args()
+    output=ROOT/args.output;output.mkdir(parents=True,exist_ok=True)
     records=[]; errors=[]; external=[]
     def passed(name): records.append({'case':name,'status':'passed'});print('PASS',name,flush=True)
     def ready(page): expect(page.get_by_text('Tagesbilanz vollständig berechnet',exact=True)).to_be_visible(timeout=15000)
     with sync_playwright() as pw:
         browser=pw.chromium.launch(executable_path=args.browser,headless=True,args=['--no-sandbox'])
         context=browser.new_context(viewport={'width':1440,'height':1080},accept_downloads=True)
+        def load_offline(ctx):
+            if not args.html:return
+            html=(ROOT/args.html).read_bytes()
+            def route(r):
+                if r.request.url.split('#')[0]==args.url:r.fulfill(body=html,content_type='text/html')
+                else:external.append(r.request.url);r.abort()
+            ctx.route('**/*',route);ctx.set_offline(True)
+        load_offline(context)
+        if args.url.startswith('file:'): context.set_offline(True)
         page=context.new_page()
         page.on('pageerror',lambda e:errors.append(str(e)))
         page.on('console',lambda m:errors.append('console: '+m.text) if m.type=='error' else None)
@@ -175,7 +184,8 @@ def main():
             passed('Fehlerhafter Import zerstört keine vorhandenen Projekte')
 
             current='Gesamtbegründung bei Nachweisveto'
-            proof=page.request.get(args.url+'/api/default').json()
+            from web.backend.app import defaults
+            proof=defaults()
             proof['project']['name']='Nachweisprüfung'
             for key in ['planning','equipment','installation','extra_investment','replacement_cost']:
                 proof['project'][key]=0
@@ -191,6 +201,8 @@ def main():
 
             current='Mobilansicht'
             mobile=browser.new_context(viewport={'width':390,'height':844},is_mobile=True,has_touch=True,device_scale_factor=1)
+            load_offline(mobile)
+            if args.url.startswith('file:'): mobile.set_offline(True)
             mp=mobile.new_page();mp.on('pageerror',lambda e:errors.append('mobile: '+str(e)))
             mp.goto(args.url,wait_until='networkidle');ready(mp)
             assert not mp.evaluate('document.documentElement.scrollWidth>window.innerWidth')

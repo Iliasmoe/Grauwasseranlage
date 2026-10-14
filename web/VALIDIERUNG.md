@@ -1,5 +1,7 @@
 # Validierung der Webanwendung
 
+Die folgenden Ergebnisse dokumentieren die ursprüngliche Web-Version. Die ergänzende eigenständige HTML-Version und Browser-Zwischenstände sind in [`HTML_VALIDIERUNG.md`](HTML_VALIDIERUNG.md) geprüft.
+
 Stand: 14.10.2026. Prüfung der implementierten Anwendung, getrennt von der wissenschaftlichen Validierung der Annahmen.
 
 ## Ausgeführte Prüfungen

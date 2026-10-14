@@ -4,3 +4,4 @@ frontend/node_modules/
 frontend/dist/
 test-results/
 __pycache__/
+frontend/src/embedded-assets.ts

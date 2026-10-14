@@ -1,6 +1,6 @@
 # Grauwasser-Webanwendung
 
-Responsive Webanwendung zum vorhandenen wissenschaftlichen Excel-Prototyp. React und TypeScript im Browser, FastAPI als Backend. Die Berechnung verwendet unverändert `src/model.py`, das bereits gegen die Excel-Formeln geprüft wurde.
+Responsive Webanwendung zum vorhandenen wissenschaftlichen Excel-Prototyp. **Die Oberfläche arbeitet vollständig im Browser und wird zusätzlich als einzelne `Grauwasser_App.html` ausgeliefert.** React und TypeScript übernehmen Berechnung und Speicherung; die Python-API bleibt als Referenz und optionaler Dienst verfügbar. Das Browsermodell ist gegen `src/model.py` geprüft. Nutzung ohne Installation: [`HTML-Anleitung`](../HTML_Anleitung.md).
 
 ## Funktionen
 
@@ -11,7 +11,7 @@ Responsive Webanwendung zum vorhandenen wissenschaftlichen Excel-Prototyp. React
 - Drei frei konfigurierbare Szenarien und zwölf Einzelfaktor-Sensitivitäten.
 - Veränderbare Ampelschwellen, KPI-Katalog und Methodik-Dokumente.
 - Standardisierter Probandentest mit 50 anonymisierten Ergebnissen, Mittelwerten, Verteilungen, Zeiten, Fehlern und CSV-Export.
-- Mehrere Projekte im Browser, automatisches Speichern, JSON-Sicherung und Import.
+- Mehrere Projekte im Browser, automatisches Speichern auch unvollständiger Entwürfe, 20 wiederherstellbare Zwischenstände je Projekt, JSON-Sicherung und Import.
 - Excel-Export der tatsächlich eingegebenen Projektwerte, Kalender, Szenarien, Schwellen und Testergebnisse.
 
 Die Auslieferung startet mit **gekennzeichneten fiktiven Beispieldaten**. Ampelschwellen bleiben vorläufige Modellannahmen. Das Ergebnis ersetzt keine projektbezogenen hygienischen, technischen oder rechtlichen Nachweise.
@@ -37,22 +37,22 @@ GRAUWASSER_PORT=8080 GRAUWASSER_HOST=127.0.0.1 bash web/start.sh
 
 ### Frontend-Entwicklung
 
-Backend starten; in einem zweiten Terminal:
+Nur das Frontend starten, ohne Backend:
 
 ```bash
 cd web/frontend
 npm run dev
 ```
 
-Vite verwendet Port 5173 und leitet `/api` an Port 8000 weiter. Vor der Auslieferung `npm run build` ausführen. Für Cloud-Aufgaben den vorhandenen Checkout verwenden; kein zusätzlicher Git-Worktree ist erforderlich.
+Vite verwendet Port 5173. Die Oberfläche benötigt keine API-Anfragen. Vor der Auslieferung `npm run build` ausführen; dabei entsteht auch `Grauwasser_App.html` im Repositoryverzeichnis. Für Cloud-Aufgaben den vorhandenen Checkout verwenden; kein zusätzlicher Git-Worktree ist erforderlich.
 
 ## Datenhaltung und Export
 
-Projekte werden im `localStorage` des jeweiligen Browsers und Ursprungs gespeichert. Der Server berechnet die übermittelten Projektwerte, besitzt aber keine Projektdatenbank. Ein anderer Browser, ein anderes Gerät oder ein anderer Port hat deshalb nicht automatisch dieselben Projekte. Browserdaten löschen entfernt die lokalen Projekte. Regelmäßig JSON-Sicherungen exportieren; ein Import legt ein weiteres Projekt an und überschreibt bestehende Projekte nicht.
+Projekte werden im `localStorage` des jeweiligen Browsers und Ursprungs gespeichert. Die Oberfläche berechnet selbst und übermittelt keine Projektwerte an den Server. Die weiterhin vorhandene API besitzt keine Projektdatenbank. Ein anderer Browser, ein anderes Gerät oder ein anderer Port hat deshalb nicht automatisch dieselben Projekte. Browserdaten löschen entfernt die lokalen Projekte. Regelmäßig JSON-Sicherungen exportieren; ein Import legt ein weiteres Projekt an und überschreibt bestehende Projekte nicht.
 
 JSON-Dateien enthalten ein Versionsfeld (`format: grauwasser-web`, `version: 1`). Ungültige Strukturen werden vor Übernahme abgewiesen. Fachlich unvollständige, aber strukturell gültige Projekte können als Entwurf gespeichert werden; die Bewertung ist dann gesperrt.
 
-Der Excel-Export ist makrofrei und enthält Formeln für alle Rechenwege. Die Formeln werden **beim Öffnen in Excel automatisch neu berechnet**; der Webserver selbst speichert keine vorab berechneten Zell-Caches. Benutzereingaben werden als Text und nicht als Excel-Formeln exportiert. Der CSV-Export der Studienantworten enthält keine persönlichen Identifikatoren, sofern ausschließlich anonyme IDs eingegeben wurden.
+Der Excel-Export ist makrofrei und enthält Formeln für alle Rechenwege. Die Formeln werden **beim Öffnen in Excel automatisch neu berechnet**; der Browser entfernt veraltete Ergebnis-Caches aus der Vorlage. Benutzereingaben werden als Text und nicht als Excel-Formeln exportiert. Der CSV-Export der Studienantworten enthält keine persönlichen Identifikatoren, sofern ausschließlich anonyme IDs eingegeben wurden.
 
 Die Webanwendung enthält keine Benutzerverwaltung, zentrale Zusammenarbeit oder öffentliche Bereitstellung. Diese Funktionen sind eigenständige Erweiterungen. Die laufende Cloud-Instanz ist keine Veröffentlichung auf einer öffentlichen Domain.
 
@@ -72,18 +72,22 @@ API-Tests prüfen Referenzwerte, Nullmengen, ungültige Daten, Kalender, Szenari
 
 ## Rechenmodell
 
-Die wissenschaftliche Basis bleibt in `Methodik_Dokumentation.md`, `Probandentest.md` und `Validierungsbericht.md` dokumentiert. Wasserbilanz, Speicherstrategie, nominale Kapitalwertrechnung, konservative Aggregation und Nachweisveto entsprechen dem Excel-Modell. Die API ergänzt Strukturprüfung, Tages-/Monats-/Zahlungsdarstellung und eine strikt typisierte Studienerfassung. Sie macht aus vorläufigen Annahmen keine empirisch validierten Grenzen.
+Die wissenschaftliche Basis bleibt in `Methodik_Dokumentation.md`, `Probandentest.md` und `Validierungsbericht.md` dokumentiert. Wasserbilanz, Speicherstrategie, nominale Kapitalwertrechnung, konservative Aggregation und Nachweisveto entsprechen dem Excel-Modell. Die API ergänzt Strukturprüfung, Tages-/Monats-/Zahlungsdarstellung und eine strikt typisierte Studienerfassung. Das TypeScript-Modell in `web/frontend/src/model.ts` überträgt diese Rechenwege in den Browser; dokumentierte Differentialtests vergleichen beide Implementierungen. Es macht aus vorläufigen Annahmen keine empirisch validierten Grenzen.
 
 ## Architektur
 
 - `web/backend/app.py`: API, Eingabeprüfung, Ergebnisaufbereitung, Studienstatistik und Excel-Export.
-- `web/frontend/src/`: Oberfläche, Formulare, SVG-Diagramme und Browser-Projektverwaltung.
+- `web/frontend/src/`: Oberfläche, Formulare, SVG-Diagramme, Browser-Rechnung, XLSX-Export und Projektverwaltung.
+- `web/frontend/scripts/`: Dokumente und Excel-Vorlage einbetten und fertigen Build in eine HTML-Datei zusammenführen.
+- `Grauwasser_App.html`: vollständige Anwendung ohne Laufzeitabhängigkeiten.
 - `web/frontend/package-lock.json`: reproduzierbare JavaScript-Abhängigkeiten.
 - `web/requirements*.txt`: gepinnte Python-Abhängigkeiten für Anwendung und Entwicklung.
 - `web/setup.sh`, `web/start.sh`: Installation und Start.
 - `web/tests/`: automatisierte API- und Browserprüfungen.
 
 Die API ist ohne externe Dienste oder Zugangsdaten lauffähig. Während der Anwendung werden keine externen Schriften, Bilder, Analyse- oder KI-Dienste angefragt. Die OpenAPI-Spezifikation ist unter `/api/openapi.json` verfügbar.
+
+Weitere Offline- und Speicherprüfungen sind in [`HTML_VALIDIERUNG.md`](HTML_VALIDIERUNG.md) dokumentiert.
 
 ## Cloud-Umgebung
 

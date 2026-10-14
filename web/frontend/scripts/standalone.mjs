@@ -1,0 +1,10 @@
+import { readFileSync, writeFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+const dist = fileURLToPath(new URL('../dist/', import.meta.url));
+let html = readFileSync(dist + 'index.html', 'utf8');
+html = html.replace(/<script\b[^>]*src="([^"]+)"[^>]*><\/script>/g, (_, path) => '<script type="module">' + readFileSync(dist + path.replace(/^\//, ''), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>');
+html = html.replace(/<link\b[^>]*href="([^"]+\.css)"[^>]*>/g, (_, path) => '<style>' + readFileSync(dist + path.replace(/^\//, ''), 'utf8').replace(/<\/style/gi, '<\\/style') + '</style>');
+html = html.replace(/<meta name="description"[^>]*>/, '<meta name="description" content="Grauwasser-Bewertung: vollständige Offline-Anwendung mit automatisch gespeicherten Zwischenständen.">');
+if (/\b(?:src|href)="\/(?:assets|api)\//.test(html)) throw new Error('Externe Abhängigkeit im HTML gefunden.');
+writeFileSync(new URL('../../../Grauwasser_App.html', import.meta.url), html);
+console.log('Grauwasser_App.html erstellt: ' + Buffer.byteLength(html) + ' Bytes, offline und ohne Server nutzbar.');
